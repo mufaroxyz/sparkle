@@ -19,7 +19,11 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
+  "paths": {
+    "imgui": [ "./imgui-js/build/imgui" ]
+  },
   "include": [
-    "src"
+    "src",
+    "./imgui-js"
   ]
 }
