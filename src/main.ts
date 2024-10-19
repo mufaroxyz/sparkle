@@ -16,21 +16,10 @@ const BASKET_WIDTH = 60;
 const game = new MyGame(canvasElement);
 mountCanvasDevTools(game);
 
-const scene1 = new Scene({
-    x: 0,
-    y: 0,
-    width: game.getWidth(),
-    height: game.getHeight(),
-});
+const startScene = new Scene(game.getWidth(), game.getHeight());
+const gameScene = new Scene(game.getWidth(), game.getHeight());
 
-const scene2 = new Scene({
-    x: 0,
-    y: 0,
-    width: game.getWidth(),
-    height: game.getHeight(),
-});
-
-scene2.addChild(new Basket({
+gameScene.addChild(new Basket({
     x: game.getWidth() / 2 - BASKET_WIDTH / 2,
     y: 50,
     width: BASKET_WIDTH,
@@ -38,17 +27,9 @@ scene2.addChild(new Basket({
 }));
 
 game.scenes.defineScenes({
-    "root": scene1,
-    "game": scene2,
+    "start": startScene,
+    "game": gameScene,
 })
 
-game.scenes.setScene("root")
+game.scenes.setScene("start")
 game.start();
-
-setTimeout(() => {
-    if (game.getCurrentSceneId() === "root") {
-        game.scenes.setScene("game");
-    } else {
-        game.scenes.setScene("root");
-    }
-}, 3000);

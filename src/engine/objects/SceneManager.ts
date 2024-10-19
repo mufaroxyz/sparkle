@@ -1,6 +1,7 @@
 import {NodeManager} from "./NodeManager.ts";
 import {Scene} from "./Scene.ts";
 import {NodeTree} from "../structures/node-tree.ts";
+import {ImGui} from "@zhobo63/imgui-ts";
 
 type UScene = Scene & NodeTree;
 
@@ -41,5 +42,22 @@ export class SceneManager extends NodeManager {
     public getSceneById(id: string): UScene | undefined {
         const children = this.children;
         return children.find((scene) => scene.id === id);
+    }
+
+    public ImGetActiveIndex(): ImGui.ImScalar<number> {
+        if (!this.currentScene) {
+            return [0];
+        }
+        return [ this.children.indexOf(this.currentScene) ];
+    }
+
+    public ImSetActiveIndex(index: ImGui.ImScalar<number>) {
+        console.log("ImGui: Updating active element to, ", index[0]);
+        this.currentScene = this.children[index[0]];
+        console.log("ImGui: Updated active element to, ", this.currentScene);
+    }
+
+    public getSceneNames() {
+        return this.children.map(scene => scene.id);
     }
 }

@@ -51,35 +51,13 @@
           z-index: 5;
           background-color: #242424;
         }
-        #canvas-nametag {
-          position: relative;
-          display: flex;
-          z-index: 10;
-        }
-        .nametag {
-          position: absolute;
-          top: 0;
-          left: 1rem;
-          padding: 0 0.5rem;
-          transform: translateY(-50%);
-          color: #fff;
-          font-size: 1rem;
-          font-family: monospace;
-          z-index: 11;
-          margin: 0;
-          background-color: #242424;
-          border-radius: 0.5rem;
-        }
     </style>
   </head>
   <body>
     <div id="canvas-wrapper">
-      <div id="canvas-nametag">
-        <canvas id="game">
-          Your browser does not support the HTML5 canvas element.
-        </canvas>
-        <p class="nametag">GAME CANVAS</p>
-      </div>
+      <canvas id="game">
+        Your browser does not support the HTML5 canvas element.
+      </canvas>
     </div>
     <div id="dev-tools"></div>
     <script type="module" src="/src/main.ts"></script>

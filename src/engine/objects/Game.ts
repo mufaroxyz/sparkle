@@ -65,10 +65,15 @@ export abstract class Game {
         this.loop();
     }
 
+    private flushCanvas() {
+        this.context.clearRect(0, 0, this.getWidth(), this.getHeight());
+    }
+
     private loop() {
+        this.flushCanvas();
         this.update();
-        this.draw();
         this.scenes.update();
+        this.draw();
         this.scenes.draw(this.context);
         requestAnimationFrame(this.loop.bind(this));
     }

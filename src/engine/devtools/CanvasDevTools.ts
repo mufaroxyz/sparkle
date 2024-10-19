@@ -29,6 +29,12 @@ async function render(time: number, game: Game) {
     ImGui.Text("canvas:width " + game.getWidth());
     ImGui.Text("canvas:height " + game.getHeight());
     ImGui.Text("CurrentScene " + game.getCurrentSceneId());
+    let currentItem = game.scenes.ImGetActiveIndex();
+    const x = ImGui.Combo("Scene", currentItem, game.scenes.getSceneNames());
+    if (x) {
+        console.log(currentItem);
+        game.scenes.ImSetActiveIndex(currentItem);
+    }
     ImGui.End();
     ImGui.EndFrame();
     ImGui.Render();
