@@ -1,6 +1,6 @@
 import {BaseGameObject} from "./BaseGameObject.ts";
-import {NodeTreeLeaf} from "../structures/node-tree";
-import {LeafGameNodeParams} from "../structures/leaf-game-node";
+import {NodeTreeLeaf} from "../structures/node-tree.ts";
+import {LeafGameNodeParams} from "../structures/leaf-game-node.ts";
 
 export abstract class LeafGameNode extends BaseGameObject implements NodeTreeLeaf {
     public readonly children: undefined = undefined;

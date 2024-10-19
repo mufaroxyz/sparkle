@@ -1,6 +1,6 @@
 import {BaseGameObject} from "./BaseGameObject.ts";
-import {NodeTree} from "../structures/node-tree";
-import {GameNodeParams} from "../structures/game-node";
+import {NodeTree} from "../structures/node-tree.ts";
+import {GameNodeParams} from "../structures/game-node.ts";
 
 export class GameNode extends BaseGameObject implements NodeTree {
     public children: NodeTree[] = [];

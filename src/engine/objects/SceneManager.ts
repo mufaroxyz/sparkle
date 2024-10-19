@@ -1,6 +1,6 @@
 import {NodeManager} from "./NodeManager.ts";
 import {Scene} from "./Scene.ts";
-import {NodeTree} from "../structures/node-tree";
+import {NodeTree} from "../structures/node-tree.ts";
 
 type UScene = Scene & NodeTree;
 
